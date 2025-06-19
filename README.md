@@ -1,2 +1,2 @@
 # repoductor-python
-reproductor hecho con python y flet
+reproductor de auido hecho con python y flet
