@@ -29,6 +29,7 @@ async def main(page: ft.Page):
     page.padding = 20
     page.bgcolor = "transparent"# Fondo transparente, preparado para mostrar el degradado
 
+
     # Fondo con degradado azul oscuro
     background = ft.Container(
         expand=True,
@@ -82,15 +83,13 @@ async def main(page: ft.Page):
     
     # Fila con progreso, tiempo actual y duración
     fila_reproductor = ft.Row([tiempo_recorrido, barra_de_progreso, duracion], alignment=ft.MainAxisAlignment.CENTER)
-
+    
+    icono_musical = ft.Icon(name=ft.icons.MUSIC_NOTE,size=60,color=ft.colors.WHITE)
+   
+   
     # Columna principal que organiza todos los controles
-    columna = ft.Column(
-        [info_cancion, fila_reproductor, controles, abrir_boton, status_message],
-        spacing=20,
-        alignment=ft.MainAxisAlignment.CENTER,
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-        expand=True
-    )
+    columna = ft.Column([icono_musical, info_cancion, fila_reproductor, controles, abrir_boton, status_message],
+    spacing=20,alignment=ft.MainAxisAlignment.CENTER,horizontal_alignment=ft.CrossAxisAlignment.CENTER,expand=True)
 
     # Apilamos el fondo degradado, blur y la caja del reproductor centrada
     page.add(
@@ -187,4 +186,4 @@ async def main(page: ft.Page):
     asyncio.create_task(actualizar_progreso())
 
 # Ejecuta la aplicación
-ft.app(target=main)
+ft.app(target=main, view=ft.FLET_APP)
